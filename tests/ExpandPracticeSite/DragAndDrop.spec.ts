@@ -19,7 +19,7 @@ test.describe('Check the drag and drop functionality', () => {
         await expect(dragAndDropPage.greenCircle).toHaveAttribute('style','border: none;')
         await expect(dragAndDropPage.blueCircle).toHaveAttribute('style','border: none;')
     })
-    test('Drag and drop squares', async ({loginPage,dragAndDropPage,page})=>{
+    test('Drag and drop squares', async ({loginPage,dragAndDropPage})=>{
         await loginPage.goto(urls.practiceExpand+'/drag-and-drop')
         await expect(dragAndDropPage.squareA).toHaveText('A')
         await dragAndDropPage.dragDrop(dragAndDropPage.squareA,dragAndDropPage.squareB)
