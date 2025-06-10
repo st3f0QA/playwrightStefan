@@ -20,30 +20,30 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18.20.2'
-
-     - name: Install missing libraries
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-        libgtk-4-1 \
-        libgraphene-1.0-0 \
-        woff2 \
-        libvpx9 \
-        libevent-2.1-7 \
-        libopus0 \
-        gstreamer1.0-plugins-base \
-        gstreamer1.0-plugins-good \
-        gstreamer1.0-plugins-bad \
-        gstreamer1.0-plugins-ugly \
-        gstreamer1.0-libav \
-        flite \
-        libavif-dev \
-        libharfbuzz-dev \
-        libsecret-1-dev \
-        libhyphen-dev \
-        libmanette-0.2-dev \
-        libgles2-mesa-dev \
-        libx264-dev
+      
+      - name: Install missing libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+          libgtk-4-1 \
+          libgraphene-1.0-0 \
+          woff2 \
+          libvpx9 \
+          libevent-2.1-7 \
+          libopus0 \
+          gstreamer1.0-plugins-base \
+          gstreamer1.0-plugins-good \
+          gstreamer1.0-plugins-bad \
+          gstreamer1.0-plugins-ugly \
+          gstreamer1.0-libav \
+          flite \
+          libavif-dev \
+          libharfbuzz-dev \
+          libsecret-1-dev \
+          libhyphen-dev \
+          libmanette-0.2-dev \
+          libgles2-mesa-dev \
+          libx264-dev
       - name: Install Playwright
         run: npx playwright install  
 
