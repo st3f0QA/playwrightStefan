@@ -1,12 +1,14 @@
 import { test as base } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { DragAndDropPage } from '../pages/DragAndDrop'
-import {Scroll} from '../pages/Scroll'
+import { Scroll } from '../pages/Scroll'
+import { API } from '../pages/API';
 
 type TestFixtures = {
   loginPage: LoginPage;
   dragAndDropPage: DragAndDropPage;
   scrollPage: Scroll;
+  apiRequest: API
 };
 
 export const test = base.extend<TestFixtures>({
@@ -18,6 +20,8 @@ export const test = base.extend<TestFixtures>({
   },
   scrollPage: async({ page },use)=>{
     await use(new Scroll(page))
+  },
+  apiRequest: async({request},use)=>{
+    await use (new API(request))
   }
-  
 });

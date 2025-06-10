@@ -1,4 +1,5 @@
 export const urls = {
   practiceExpand: 'https://practice.expandtesting.com',
-  quotesToScrape: 'https://quotes.toscrape.com/scroll'
+  quotesToScrape: 'https://quotes.toscrape.com/scroll',
+  jsonPlaceHolderURL: 'https://jsonplaceholder.typicode.com/'
 };

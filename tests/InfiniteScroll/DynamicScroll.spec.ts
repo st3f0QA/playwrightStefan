@@ -10,7 +10,7 @@ test.describe('Scrape data from infinite scroll',()=>{
     })
     test('Scrape data based on user choice', async({loginPage,scrollPage})=>{
         await loginPage.goto(urls.quotesToScrape)
-        await expect(scrollPage.heading).toBeVisible;
+        expect(scrollPage.heading).toBeVisible;
         await expect(scrollPage.ScrollForSpecificElement('Logic will get you from A to Z; imagination will get you everywhere.','Albert Einstein')).resolves.toBeTruthy()
     })
 })
