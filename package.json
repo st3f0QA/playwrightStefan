@@ -5,10 +5,10 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.21"
+    "@types/node": "^22.15.31"
   },
   "scripts": {
     "test": "playwright test",
-    "expandpracticesite":"playwright test --project=chromium tests/ExpandPracticeSite/*.spec.ts" 
+    "expandpracticesite": "playwright test --project=chromium tests/ExpandPracticeSite/*.spec.ts"
   }
 }
