@@ -4,12 +4,14 @@ import { DragAndDropPage } from '../pages/DragAndDrop'
 import { Scroll } from '../pages/Scroll'
 import { API } from '../pages/API';
 import { iFrame } from '../pages/iFrame';
+import { LoginMultiple } from '../tests/helpers/auth';
 type TestFixtures = {
   loginPage: LoginPage;
   dragAndDropPage: DragAndDropPage;
   scrollPage: Scroll;
   apiRequest: API
   iframe: iFrame
+  loginMultiple: LoginMultiple
 };
 
 export const test = base.extend<TestFixtures>({
@@ -27,5 +29,9 @@ export const test = base.extend<TestFixtures>({
   },
   iframe: async({ page },use)=>{
     await use(new iFrame(page))
-  } 
+  }, 
+  loginMultiple: async({page},use)=>{
+    await use(new LoginMultiple(page))
+  }
+  
 });

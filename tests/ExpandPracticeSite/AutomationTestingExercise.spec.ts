@@ -1,6 +1,7 @@
 import { test } from "../../utils/testSetup.ts";
-import { expect } from "@playwright/test";
+import { chromium, expect } from "@playwright/test";
 import { urls } from "../../utils/urls.ts";
+import users from '../fixtures/user.json';
 
 test.describe.configure({ retries: 2 }); // retry all tests in this file
 
@@ -33,5 +34,22 @@ test.describe('test exercises site',()=>{
         await loginPage.signIntoPage(username,password)
         await expect(loginPage.AlertMessage).toBeVisible()
         await expect(loginPage.AlertMessage).toHaveText('You logged into a secure area!')
+    })
+    test('new method to login multiple', async({loginMultiple,page})=>{
+        // Launch a browser
+        const browser = await chromium.launch();
+
+        // 2. Create a new browser context
+        const contextValid = await browser.newContext();
+        await loginMultiple.login(contextValid,users.validUser)
+    })
+    test('new method for invalid', async({loginMultiple,loginPage})=>{
+        // Launch a browser
+        const browser = await chromium.launch();
+
+        // 2. Create a new browser context
+        const contextValid = await browser.newContext();
+        await loginMultiple.login(contextValid,users.invalidUser)
+        await expect(loginPage.AlertMessage).toHaveText('Your username is invalid!')
     })
 })
