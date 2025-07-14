@@ -5,6 +5,8 @@ import { Scroll } from '../pages/Scroll'
 import { API } from '../pages/API';
 import { iFrame } from '../pages/iFrame';
 import { LoginMultiple } from '../tests/helpers/auth';
+import { InflationBoard } from '../pages/InflationBoard'
+
 type TestFixtures = {
   loginPage: LoginPage;
   dragAndDropPage: DragAndDropPage;
@@ -12,6 +14,7 @@ type TestFixtures = {
   apiRequest: API
   iframe: iFrame
   loginMultiple: LoginMultiple
+  inflationBoard: InflationBoard
 };
 
 export const test = base.extend<TestFixtures>({
@@ -32,6 +35,9 @@ export const test = base.extend<TestFixtures>({
   }, 
   loginMultiple: async({page},use)=>{
     await use(new LoginMultiple(page))
+  },
+  inflationBoard: async({ page },use)=>{
+    await use(new InflationBoard(page))
   }
   
 });

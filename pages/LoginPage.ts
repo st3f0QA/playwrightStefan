@@ -1,7 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 
 export class LoginPage{
-    private page: Page
+    public page: Page
     private usernameField: Locator
     private passwordField: Locator
     private alertMessage: Locator

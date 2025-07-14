@@ -8,7 +8,7 @@ export class iFrame{
         this.page = page
         this.iFrameLocator = page.locator('iframe[title="W3Schools HTML Tutorial"]')
     }
-    async getFrame(locator){
+    async getFrame(locator: Locator){
         const handleIframeElement = await locator.elementHandle()
         if (!handleIframeElement) throw new Error ('Iframe element not found!')
 
