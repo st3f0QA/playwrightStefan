@@ -25,6 +25,7 @@ test.describe('Scrape data from infinite scroll',()=>{
     //   console.log('All collected countries with inflation:');
     //   console.table(allCountries); // Nicely formatted output
     console.log('Last country:', allCountries)
+    //add assertion and change the logic to avoid duplicating entries
     
     })
 })
