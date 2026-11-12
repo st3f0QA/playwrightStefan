@@ -1,9 +1,9 @@
 {
-  "validUser": {
+  "validCredentials": {
     "username": "practice",
     "password": "SuperSecretPassword!"
   },
-  "invalidUser": {
+  "invalidCredentials": {
     "username": "stefan",
     "password": "1234567"
   }

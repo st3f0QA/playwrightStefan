@@ -1,10 +1,8 @@
 import { BrowserContext, Locator, Page } from "@playwright/test";
 import { urls } from "../../utils/urls";
+import type { Credentials } from "../types";
 
-interface Credentials {
-    username: string;
-    password: string;
-}
+
 export class LoginMultiple{
     usernameField: Locator
     passwordField: Locator

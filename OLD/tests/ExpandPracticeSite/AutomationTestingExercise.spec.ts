@@ -1,7 +1,7 @@
 import { test } from "../../utils/testSetup.ts";
 import { chromium, expect } from "@playwright/test";
 import { urls } from "../../utils/urls.ts";
-import users from '../fixtures/user.json';
+import credentials from '../fixtures/user.json';
 
 test.describe.configure({ retries: 2 }); // retry all tests in this file
 
@@ -18,7 +18,7 @@ test.describe('test exercises site',()=>{
     })
     test('Check the login with invalid credentials',async({loginPage})=>{
         await loginPage.goto(urls.practiceExpand + '/login')
-        await loginPage.signIntoPage('stefan','1234567')
+        await loginPage.signIntoPage(credentials.invalidCredentials.username,credentials.invalidCredentials.password)
         await expect(loginPage.AlertMessage).toBeVisible()
         await expect(loginPage.AlertMessage).toHaveText('Your username is invalid!')
     })
@@ -41,7 +41,7 @@ test.describe('test exercises site',()=>{
 
         // 2. Create a new browser context
         const contextValid = await browser.newContext();
-        await loginMultiple.login(contextValid,users.validUser)
+        await loginMultiple.login(contextValid,credentials.validCredentials)
     })
     test('new method for invalid', async({loginMultiple,loginPage})=>{
         // Launch a browser
@@ -49,7 +49,7 @@ test.describe('test exercises site',()=>{
 
         // 2. Create a new browser context
         const contextValid = await browser.newContext();
-        await loginMultiple.login(contextValid,users.invalidUser)
+        await loginMultiple.login(contextValid,credentials.invalidCredentials)
         await expect(loginPage.AlertMessage).toHaveText('Your username is invalid!')
     })
 })
